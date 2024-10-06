@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>경품 추첨기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css"> <!-- CSS 파일 연결 -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="fw-bold">경품 추첨기</h1>
+        
+        <!-- 카운트다운 애니메이션 -->
+        <div id="countdown">5</div>  <!-- 처음엔 5초로 시작 -->
+        
+        <!-- 추첨이 완료되면 버튼이 "다시 하기"로 바뀌고, 처음으로 돌아가도록 수정 -->
+        {% if draw_done %}
+            <form action="/" method="get">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mb-4">다시 하기</button>
+                </div>
+            </form>
+        {% else %}
+            <form id="drawForm" action="/draw" method="post">
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary mb-4" id="drawButton" onclick="startCountdown()">랜덤 추첨</button>
+                </div>
+            </form>
+        {% endif %}
+        
+        {% if not draw_done %}
+            <h3>전체 이메일 목록 (총 {{ total_count }}명)</h3>
+            <ul class="list-group mb-4">
+                {% for email in emails %}
+                <li class="list-group-item">{{ email }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        {% if selected_emails %}
+            <h3>추첨된 이메일 목록 (60명)</h3>
+            <ul class="list-group">
+                {% for email in selected_emails %}
+                <li class="list-group-item list-group-item-success">{{ email }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script> <!-- JS 파일 연결 -->
+</body>
+</html>

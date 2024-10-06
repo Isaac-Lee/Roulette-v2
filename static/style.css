@@ -1,0 +1,69 @@
+/* 전체 배경 및 테마 설정 */
+body {
+    background-color: #000;  /* 어두운 배경 */
+    color: #fff;  /* 밝은 텍스트 */
+    font-family: 'Noto Sans KR', sans-serif;  /* Noto Sans KR 폰트 사용 */
+}
+
+/* 헤더 타이틀 스타일 */
+h1 {
+    font-size: 3.5em;
+    color: #b4e0ff;  /* 파란색 네온 스타일 */
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px; /* 상단에 여백 추가 */
+    text-shadow: 0 0 10px #b4e0ff, 0 0 20px #00aaff;
+    font-weight: 700;  /* 굵은 폰트 사용 */
+}
+
+/* 카운트다운 애니메이션 스타일 */
+#countdown {
+    font-size: 4em;
+    font-weight: bold;
+    color: #00ff87;  /* 밝은 녹색 */
+    text-align: center;
+    display: none;
+    text-shadow: 0 0 10px #00ff87, 0 0 20px #00ff87;
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #00aaff;
+    box-shadow: 0 0 15px #00aaff, 0 0 30px #00aaff;
+}
+
+/* 버튼 호버 효과 */
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #007bff;
+}
+
+/* 발표자 카드 스타일 */
+.card {
+    background-color: #292929;
+    border: 1px solid #333;
+    margin: 20px 0;
+}
+
+.card-title {
+    color: #b4e0ff;
+}
+
+.card-text {
+    color: #ccc;
+}
+
+/* 이메일 목록 스타일 */
+.list-group-item {
+    background-color: #333; /* 어두운 배경 */
+    color: #b4e0ff;  /* 밝은 파란색 텍스트 */
+    border: 1px solid #444; /* 테두리 어둡게 */
+}
+
+/* 추첨된 이메일 목록도 같은 스타일 적용 */
+.list-group-item-success {
+    background-color: #333;  /* 전체 이메일 목록과 같은 어두운 배경 */
+    color: #b4e0ff;  /* 파란색 텍스트 */
+    border: 1px solid #444;  /* 동일한 테두리 스타일 */
+}
