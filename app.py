@@ -30,7 +30,7 @@ def select_random_emails(df, count=60):
 @app.get("/", response_class=HTMLResponse)
 async def get_index():
     df = load_data()
-    emails = df['email'].tolist()
+    emails = list(zip(df['name'], df['email']))
     total_count = len(emails)
     with open(os.path.join(os.path.dirname(__file__), "static/index.html"), "r", encoding='utf-8') as f:
         template_content = f.read()
@@ -45,7 +45,8 @@ async def get_index():
 @app.post("/draw", response_class=HTMLResponse)
 async def draw_random_emails():
     df = load_data()
-    selected_emails = select_random_emails(df)
+    selected_df = df.sample(n=60, random_state=random.randint(1, 10000))
+    selected_emails = list(zip(selected_df['name'], selected_df['email']))
     with open(os.path.join(os.path.dirname(__file__), "static/index.html"), "r", encoding='utf-8') as f:
         template_content = f.read()
     template = Template(template_content)
